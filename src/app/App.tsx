@@ -9,15 +9,17 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import {Menu} from '@mui/icons-material';
 import LinearProgress from '@mui/material/LinearProgress';
-import {useAppDispatch, useAppSelector} from './store';
+import {useAppSelector} from './store';
 import {RequestStatusType} from './app-reducer';
+import {ErrorSnackbars} from '../components/ErrorSnackbar/ErrorSnackbar';
 
 
 function App() {
-    const status = useAppSelector<RequestStatusType>(state => state.app.status);
 
+    const status = useAppSelector<RequestStatusType>(state => state.app.status);
     return (
         <div className="App">
+            <ErrorSnackbars/>
             <AppBar position="static">
                 <Toolbar>
                     <IconButton edge="start" color="inherit" aria-label="menu">
